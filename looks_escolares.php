@@ -20,8 +20,8 @@ $productos = $sql->fetchAll(PDO::FETCH_ASSOC);
   <style>
     :root {
       --lila-bebe: #e6d5f7;
-      --lila-oscuro: #b58be3;
-      --hover-lila: #d2b5f1;
+      --lila-oscuro:rgb(167, 90, 250);
+      --hover-lila:rgb(243, 181, 245);
       --card-color: #ffffff;
       --shadow: rgba(0, 0, 0, 0.1);
       --text-dark: #333;
