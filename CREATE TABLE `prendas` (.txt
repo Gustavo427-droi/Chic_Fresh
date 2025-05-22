@@ -177,6 +177,21 @@ INSERT INTO `prendas` (`Id_Prenda`, `Nombre_Prenda`, `Descripcion`, `Genero`, `C
 ('P_021', 'Camiseta versatil de rayas ', 'Con pliegues y lazo', 'Mujer', 'Camiseta', 31.50, 'Blanco y azul', 'L', 81, 31.50, 0),
 
 
+('P_041', 'Manfinity EMRG Camiseta ', 'Manga corta para hombre con gráfico de letra y ribete de contraste', 'Hombre', 'Camiseta', 46.00, 'Rojo', 'XS', 46, 31.00, 0),
+('P_041', 'Manfinity EMRG Camiseta ', 'Manga corta para hombre con gráfico de letra y ribete de contraste', 'Hombre', 'Camiseta', 46.00, 'Rojo', 'S', 46, 31.00, 0),
+('P_041', 'Manfinity EMRG Camiseta ', 'Manga corta para hombre con gráfico de letra y ribete de contraste', 'Hombre', 'Camiseta', 46.00, 'Rojo', 'M', 46, 31.00, 0),
+('P_041', 'Manfinity EMRG Camiseta ', 'Manga corta para hombre con gráfico de letra y ribete de contraste', 'Hombre', 'Camiseta', 46.00, 'Rojo', 'L', 46, 31.00, 0),
+('P_041', 'Manfinity EMRG Camiseta ', 'Manga corta para hombre con gráfico de letra y ribete de contraste', 'Hombre', 'Camiseta', 46.00, 'Azul', 'XS', 46, 31.00, 0),
+('P_041', 'Manfinity EMRG Camiseta ', 'Manga corta para hombre con gráfico de letra y ribete de contraste', 'Hombre', 'Camiseta', 46.00, 'Azul', 'S', 46, 31.00, 0),
+('P_041', 'Manfinity EMRG Camiseta ', 'Manga corta para hombre con gráfico de letra y ribete de contraste', 'Hombre', 'Camiseta', 46.00, 'Azul', 'M', 46, 31.00, 0),
+('P_041', 'Manfinity EMRG Camiseta ', 'Manga corta para hombre con gráfico de letra y ribete de contraste', 'Hombre', 'Camiseta', 46.00, 'Azul', 'L', 46, 31.00, 0),
+('P_041', 'Manfinity EMRG Camiseta ', 'Manga corta para hombre con gráfico de letra y ribete de contraste', 'Hombre', 'Camiseta', 46.00, 'Verde', 'XS', 46, 31.00, 0),
+('P_041', 'Manfinity EMRG Camiseta ', 'Manga corta para hombre con gráfico de letra y ribete de contraste', 'Hombre', 'Camiseta', 46.00, 'Verde', 'S', 46, 31.00, 0),
+('P_041', 'Manfinity EMRG Camiseta ', 'Manga corta para hombre con gráfico de letra y ribete de contraste', 'Hombre', 'Camiseta', 46.00, 'Verde', 'M', 46, 31.00, 0),
+('P_041', 'Manfinity EMRG Camiseta ', 'Manga corta para hombre con gráfico de letra y ribete de contraste', 'Hombre', 'Camiseta', 46.00, 'Verde', 'L', 46, 31.00, 0),
+
+
+
 
 ('P_061', 'Camiseta informal', 'Manga larga con cuello redondo y color liso con empalme', 'Hombre', 'Camiseta manga larga', 43.50, 'Anaranjado', 'XS', 90, 42.50, 1),
 ('P_061', 'Camiseta informal', 'Manga larga con cuello redondo y color liso con empalme', 'Hombre', 'Camiseta manga larga', 43.50, 'Anaranjado', 'S', 90, 42.50, 0),
