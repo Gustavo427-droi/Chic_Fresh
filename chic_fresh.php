@@ -23,12 +23,12 @@ if(!isset($_SESSION['usuario'])){
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      --baby-blue: #d0f0fd;
-      --blue-accent: #aee0f8;
+      --baby-blue: #c19a6b; /* Cambiado de #d0f0fd a color camello */
+      --blue-accent: #c9a27e;
       --text-dark: #2d2d2d;
-      --btn-blue: #51b4e6;
-      --hover-blue: #87dcff;
-    }
+      --btn-blue: #c9a27e;
+      --hover-blue: #c9a27e;
+    }   
     * {
       margin: 0;
       padding: 0;
@@ -40,7 +40,7 @@ if(!isset($_SESSION['usuario'])){
       color: var(--text-dark);
     }
     .promo-banner {
-      background-color: #e6005c;
+      background-color: #8b6e52;
       color: white;
       text-align: center;
       padding: 12px 20px;
@@ -63,11 +63,16 @@ if(!isset($_SESSION['usuario'])){
     .logo {
       display: flex;
       align-items: center;
-      font-size: 24px;
-      font-weight: 700;
-      color: #fff;
       gap: 10px;
     }
+   .logo-img {
+  width: 100px; /*IGUAL TAMBEIN ES TMAÑO*/
+  height: 100px; /* tamaño del logo */
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
     .menu {
       position: relative;
     }
@@ -305,7 +310,9 @@ if(!isset($_SESSION['usuario'])){
 <div class="promo-banner">🎉 ¡30% de descuento en tu primera compra! Oferta termina en <span id="countdown"></span></div>
 
 <div class="topbar">
-  <div class="logo"><i class="fas fa-store"></i> Chic Fresh</div>
+  <div class="logo">
+    <img src="assets/images/logo.jpg" alt="Chic Fresh Logo" class="logo-img">
+  </div>
   <div class="menu">
     <div class="dropdown">
       <a href="#">Tops</a>
@@ -323,8 +330,6 @@ if(!isset($_SESSION['usuario'])){
     <i class="fas fa-shopping-cart"><span class="badge">0</span></i>
   </div>
 </div>
-
-
 
 <section class="seccion" id="tendencias">
   <h2>Tendencias Juveniles</h2>
@@ -353,15 +358,12 @@ if(!isset($_SESSION['usuario'])){
   &copy; 2025 Chic Fresh - Moda Juvenil. Todos los derechos reservados.
 </footer>
 
-<!-- Glow Cursor -->
 <div id="glow-cursor"></div>
 
-<!-- WhatsApp Float -->
 <a href="https://wa.me/907939697" class="whatsapp-float" target="_blank" title="¡Chatea con nosotros!">
   <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
 </a>
 
-<!-- Chat Bot -->
 <div id="chat-bot" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
   <button onclick="toggleChat()" style="background: #aee0f8; border: none; border-radius: 50%; width: 60px; height: 60px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer;">
     <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Chat Bot" style="width: 60%; height: 60%;">
@@ -371,7 +373,6 @@ if(!isset($_SESSION['usuario'])){
     <div style="padding: 10px; font-size: 14px; color: #333;">Hola 👋 ¿En qué puedo ayudarte hoy?</div>
   </div>
 </div>
-
 
 <section class="redes-sociales">
   <h2>Síguenos en redes</h2>
@@ -383,8 +384,6 @@ if(!isset($_SESSION['usuario'])){
     <a href="https://wa.me/907939697" target="_blank"><i class="fab fa-whatsapp"></i></a>
   </div>
 </section>
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
