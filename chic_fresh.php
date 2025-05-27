@@ -1,15 +1,13 @@
 <?php
 session_start();
-if(!isset($_SESSION['usuario'])){
-    echo '
-        <script>
-            alert("Por favor debes iniciar sesión");
-        </script>
-    ';
-    header("Location: index.php");
-    session_destroy();
-    die();
+
+if (!isset($_SESSION['usuario'])) {
+    header("Location: index.php?mensaje=debes_iniciar_sesion");
+    exit();
+    
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -111,6 +109,7 @@ if(!isset($_SESSION['usuario'])){
     .menu:hover .dropdown {
       display: flex;
     }
+
     .search-bar {
       flex: 1;
       display: flex;
@@ -133,6 +132,9 @@ if(!isset($_SESSION['usuario'])){
       padding: 0 20px;
       cursor: pointer;
     }
+
+
+
     .actions {
       display: flex;
       align-items: center;
@@ -303,16 +305,126 @@ if(!isset($_SESSION['usuario'])){
     .whatsapp-float:hover {
       transform: scale(1.1);
     }
+
+
+
+
+    
+.perfil-usuario {
+  position: relative;
+}
+
+.perfil-button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 40px;
+  transition: background 0.3s;
+}
+
+.perfil-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.perfil-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+
+
+
+
+
+.sidebar {
+  position: fixed;
+  left: -250px;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background-color: var(--blue-accent);
+  color: white;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.2);
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.sidebar a:hover {
+  color: #ffebcd;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.close-btn {
+  align-self: flex-end;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
   </style>
 </head>
 <body>
 
 <div class="promo-banner">🎉 ¡30% de descuento en tu primera compra! Oferta termina en <span id="countdown"></span></div>
 
+
+
+
 <div class="topbar">
-  <div class="logo">
-    <img src="assets/images/logo.jpg" alt="Chic Fresh Logo" class="logo-img">
-  </div>
+  <!-- Sidebar oculto -->
+<div id="sidebar" class="sidebar">
+  <button class="close-btn" onclick="toggleSidebar()">×</button>
+  <a href="#">Inicio</a>
+  <a href="mujer.php">Mujer</a>
+ <a href="hombre.php">Hombre</a>
+ <a href="avatar.php">Avatar</a>
+  <a href="#">Configuración</a>
+</div>
+
+
+
+
+<div class="logo" onclick="toggleSidebar()"> 
+  <img src="assets/images/logo.jpg" alt="Chic Fresh Logo" class="logo-img">     
+</div>   
+
+
+
   <div class="menu">
     <div class="dropdown">
       <a href="#">Tops</a>
@@ -320,15 +432,33 @@ if(!isset($_SESSION['usuario'])){
       <a href="#">Chaquetas</a>
     </div>
   </div>
-  <div class="search-bar">
-    <input type="text" placeholder="Buscar en Chic Fresh" />
-    <button><i class="fas fa-search"></i></button>
+
+
+<div class="search-bar">
+  <input type="text" id="busquedaInput" placeholder="Buscar en Chic Fresh..."onkeyup="filtrarPrendas()"
+ />
+  <button><i class="fas fa-search"></i></button>
+</div>
+<div id="resultadoPrendas"></div>
+
+
+<div class="actions">
+<div class="menu perfil-usuario">
+  <button class="perfil-button">
+    <img src="assets/images/perfil.jpg" alt="Perfil" class="perfil-img">
+    <span><?php echo $_SESSION['usuario']; ?></span>
+    <i class="fas fa-caret-down"></i>
+  </button>
+  <div class="dropdown">
+    <a href="logout.php">Cerrar sesión</a>
   </div>
-  <div class="actions">
-    <a class="login" href="index.php">Hola, Inicia sesión</a>
-    <i class="fas fa-heart"></i>
-    <i class="fas fa-shopping-cart"><span class="badge">0</span></i>
-  </div>
+</div>
+
+  <i class="fas fa-heart"></i>
+  <i class="fas fa-shopping-cart"><span class="badge">0</span></i>
+</div>
+
+
 </div>
 
 <section class="seccion" id="tendencias">
@@ -337,6 +467,7 @@ if(!isset($_SESSION['usuario'])){
     <a href="looks_escolares.php" class="producto-enlace"><div class="producto"><img src="assets/images/modelo1.jpeg"><h3>#Looks Escolares</h3></div></a>
     <a href="ropa_fiesta.php" class="producto-enlace"><div class="producto"><img src="assets/images/modelo3.jpeg"><h3>#Ropa de Fiesta</h3></div></a>
     <a href="ropa_casual.php" class="producto-enlace"><div class="producto"><img src="assets/images/modelo2.jpeg"><h3>#Ropa Casual</h3></div></a>
+    <a href="pijama.php" class="producto-enlace"><div class="producto"><img src="assets/images/siesta.jpg"><h3>#Ropa de Siesta</h3></div></a>
   </div>
 </section>
 
@@ -413,7 +544,33 @@ if(!isset($_SESSION['usuario'])){
     const box = document.getElementById('chat-box');
     box.style.display = box.style.display === 'none' ? 'block' : 'none';
   }
-</script>
 
+  
+    /*filtrador*/
+function filtrarPrendas() {
+  const input = document.getElementById('busquedaInput').value.toLowerCase();
+  const productos = document.querySelectorAll('.producto');
+
+  productos.forEach(producto => {
+    const texto = producto.innerText.toLowerCase();
+    if (texto.includes(input)) {
+      producto.parentElement.style.display = 'block'; // a.href contenedor
+    } else {
+      producto.parentElement.style.display = 'none';
+    }
+  });
+}
+
+
+
+
+
+  function toggleSidebar() {            /*barra lateral de la pagina*/
+    const sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("open");
+  }
+
+  </script>
 </body>
 </html>
+
